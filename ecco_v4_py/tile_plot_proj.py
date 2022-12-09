@@ -329,9 +329,14 @@ def plot_proj_to_latlon_grid(lons, lats, data,
                               grid_linestyle = grid_linestyle,
                               colorbar_label =colorbar_label,
                               less_output=less_output)
-    
+            
+            
+            # preserve cbar object so it isn't overwritten in subsequent loops
+            if(ki==0):
+                cbar_out = cbar
+         
 
-    return f, ax, p, cbar, new_grid_lon_centers_out, new_grid_lat_centers_out,\
+    return f, ax, p, cbar_out, new_grid_lon_centers_out, new_grid_lat_centers_out,\
         data_latlon_projection_out, gl
     #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
